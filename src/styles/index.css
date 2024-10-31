@@ -3,6 +3,9 @@
   justify-content: center;
   display: flex;
 }
+InputCSS{
+  width: 7000px;
+}
 
 .container {
   width: 300px;

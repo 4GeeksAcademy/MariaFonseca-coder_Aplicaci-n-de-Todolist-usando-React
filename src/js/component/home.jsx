@@ -20,18 +20,12 @@ const Home = () => {
   return (
     <form onSubmit={sendData}>
       <div className="container text-center">
-        <h1>Todos</h1>
-        <input
-          type="text"
-          placeholder="What needs to be done?"
-          value={inputText}
-          onChange={(event) => setInput(event.target.value)}
-          onKeyDown={(event) => {
-            if (event.key === "Enter") {
-              sendData(event); // Llama a sendData si se presiona Enter
-            }
-          }}
-        />
+        <h1>To Do List</h1>
+        <li><input type="text" className="InputCSS" placeholder="What needs to be done?" value={inputText} onChange={(event) => setInput(event.target.value)} onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            sendData(event);
+          }
+        }} /></li>
         <div className="Lista text-center">
           <ul className="list-group">
             {toDo.length === 0 ? (
