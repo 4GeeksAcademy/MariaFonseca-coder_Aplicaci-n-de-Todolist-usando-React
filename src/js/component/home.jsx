@@ -1,21 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-			<ul class="list-group">
-				<li class="list-group-item">An item</li>
-				<li class="list-group-item">A second item</li>
-				<li class="list-group-item">A third item</li>
-				<li class="list-group-item">A fourth item</li>
-				<li class="list-group-item">And a fifth one</li>
-			</ul>
-		</div>
-	);
+  const [InputText, setInput] = useState("");
+  const [ToDo, setToDo] = useState([]);
+
+  function sendData(event) {
+    event.preventDefault();
+    if (InputText.trim() !== "") { // Asegura que no se agreguen tareas vacías
+      setToDo([...ToDo, InputText]); // Agrega la nueva tarea
+      setInput(""); // Limpia el input
+    }
+  }
+
+  const deleteTask = (index) => {
+    const newToDo = ToDo.filter((_, i) => i !== index); // Elimina la tarea
+    setToDo(newToDo);
+  };
+
+  return (
+    <form onSubmit={sendData}>
+      <div className="container text-center">
+        <h1>todos</h1>
+        <div className="Lista text-center">
+          <ul className="list-group">
+            {ToDo.length === 0 ? ( // Muestra un mensaje si no hay tareas
+              <li className="list-group-item">
+                No hay tareas, añadir tareas
+              </li>
+            ) : (
+              ToDo.map((task, index) => (
+                <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
+                  <span>{task}</span>
+                  <button
+                    className="btn border-0 text-muted bg-white delete-button"
+                    onClick={() => deleteTask(index)}
+                  >
+                    <i className="fa-regular fa-circle-xmark"></i>
+                  </button>
+                </li>
+              ))
+            )}
+          </ul>
+        </div>
+        <input
+          type="text"
+          value={InputText}
+          placeholder="What needs to be done?"
+          onChange={(event) => setInput(event.target.value)}
+        />
+      </div>
+    </form>
+  );
 };
 
 export default Home;
