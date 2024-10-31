@@ -3,13 +3,20 @@
   justify-content: center;
   display: flex;
 }
+
 .container {
   width: 300px;
 }
+
 .delete-button {
   opacity: 0; /* Inicialmente invisible */
   transition: opacity 0.3s; /* Suaviza la transición */
 }
+
+.list-group-item {
+  position: relative; /* Para el posicionamiento del botón */
+}
+
 .list-group-item:hover .delete-button {
   opacity: 1; /* Visible al pasar el ratón */
 }

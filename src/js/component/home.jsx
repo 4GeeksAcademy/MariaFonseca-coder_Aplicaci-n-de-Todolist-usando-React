@@ -1,39 +1,49 @@
 import React, { useState } from "react";
 
 const Home = () => {
-  const [InputText, setInput] = useState("");
-  const [ToDo, setToDo] = useState([]);
+  const [inputText, setInput] = useState("");
+  const [toDo, setToDo] = useState([]);
 
   function sendData(event) {
     event.preventDefault();
-    if (InputText.trim() !== "") { // Asegura que no se agreguen tareas vacías
-      setToDo([...ToDo, InputText]); // Agrega la nueva tarea
-      setInput(""); // Limpia el input
+    if (inputText.trim() !== "") {
+      setToDo([...toDo, inputText.trim()]);
+      setInput("");
     }
   }
 
-  const deleteTask = (index) => {
-    const newToDo = ToDo.filter((_, i) => i !== index); // Elimina la tarea
-    setToDo(newToDo);
-  };
+  function handleDelete(index) {
+    const updatedToDo = toDo.filter((_, i) => i !== index);
+    setToDo(updatedToDo);
+  }
 
   return (
     <form onSubmit={sendData}>
       <div className="container text-center">
-        <h1>todos</h1>
+        <h1>Todos</h1>
+        <input
+          type="text"
+          placeholder="What needs to be done?"
+          value={inputText}
+          onChange={(event) => setInput(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              sendData(event); // Llama a sendData si se presiona Enter
+            }
+          }}
+        />
         <div className="Lista text-center">
           <ul className="list-group">
-            {ToDo.length === 0 ? ( // Muestra un mensaje si no hay tareas
-              <li className="list-group-item">
-                No hay tareas, añadir tareas
-              </li>
+            {toDo.length === 0 ? (
+              <li className="list-group-item">No hay tareas, añadir tareas</li>
             ) : (
-              ToDo.map((task, index) => (
+              toDo.map((task, index) => (
                 <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
-                  <span>{task}</span>
+                  {task}
                   <button
+                    type="button"
                     className="btn border-0 text-muted bg-white delete-button"
-                    onClick={() => deleteTask(index)}
+                    onClick={() => handleDelete(index)}
                   >
                     <i className="fa-regular fa-circle-xmark"></i>
                   </button>
@@ -42,12 +52,6 @@ const Home = () => {
             )}
           </ul>
         </div>
-        <input
-          type="text"
-          value={InputText}
-          placeholder="What needs to be done?"
-          onChange={(event) => setInput(event.target.value)}
-        />
       </div>
     </form>
   );
