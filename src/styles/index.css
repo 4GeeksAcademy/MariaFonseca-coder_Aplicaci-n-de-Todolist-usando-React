@@ -2,24 +2,13 @@
   text-align: center;
   justify-content: center;
   display: flex;
+  width: 30px;
+  margin-left: 540px;
 }
-InputCSS{
-  width: 7000px;
-}
-
-.container {
-  width: 300px;
-}
-
-.delete-button {
-  opacity: 0; /* Inicialmente invisible */
-  transition: opacity 0.3s; /* Suaviza la transición */
-}
-
-.list-group-item {
-  position: relative; /* Para el posicionamiento del botón */
-}
-
-.list-group-item:hover .delete-button {
-  opacity: 1; /* Visible al pasar el ratón */
+ul li .InputCSS {
+  border: 1px solid gainsboro;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  width: 350px;
 }
