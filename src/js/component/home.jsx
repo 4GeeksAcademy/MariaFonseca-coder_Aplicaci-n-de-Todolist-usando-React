@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <div className="container">
       <form onSubmit={sendData}>
-        <h1 className="text-center">To Do List</h1>
+        <h1 className="Title text-center mt-5">To Do List</h1>
         <div className="Lista">
           <input type="text" className="InputCSS p-1 text-muted" placeholder="What needs to be done?" value={inputText} onChange={(event) => setInput(event.target.value)} onKeyDown={(event) => {
             if (event.key === "Enter") {
@@ -36,10 +36,10 @@ const Home = () => {
                   {task}
                   <button
                     type="button"
-                    className="btn Delete"
+                    className="btn p-0 m-0"
                     onClick={() => handleDelete(index)}
                   >
-                    <i class="fas fa-trash-alt small" style={{ fontSize: '0.5rem' }}></i>
+                    <i class="fas fa-trash-alt" style={{ fontSize: '0.5rem' }}></i>
                   </button>
                 </li>
               ))

@@ -1,3 +1,10 @@
+.Title {
+  font-family: "Lobster", sans-serif;
+  font-size: 50px;
+  font-style: normal;
+  text-decoration: underline;
+  text-decoration-color: pink;
+}
 .Lista {
   display: flex;
   flex-direction: column;
@@ -5,7 +12,9 @@
   justify-content: center;
   width: 450px;
   margin-left: 420px;
-  margin-top: 30px;
+  margin-top: 50px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 20px;
 }
 ul .InputCSS {
   border: 1px solid gainsboro;
@@ -37,8 +46,9 @@ ul .InputCSS {
     padding: 30px;
 }
 .AmountTasks{
-  font-size: 0.9em;
+  font-size: 0.8em;
   color: rgb(130, 128, 128);
   margin-right: 300px;
   margin-top: -25px;
+  font-family: "Quicksand", sans-serif;
 }
