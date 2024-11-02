@@ -7,7 +7,7 @@ const Home = () => {
   function sendData(event) {
     event.preventDefault();
     if (inputText.trim() !== "") {
-      setToDo([...toDo, inputText.trim()]);
+      setToDo([...toDo, inputText.trim()]);//De expansión
       setInput("");
     }
   }
@@ -21,12 +21,12 @@ const Home = () => {
     <form onSubmit={sendData}>
       <h1 className="text-center">To Do List</h1>
       <div className="Lista">
+        <input type="text" className="InputCSS p-1 text-muted" placeholder="What needs to be done?" value={inputText} onChange={(event) => setInput(event.target.value)} onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            sendData(event);
+          }
+        }} />
         <ul className="list-group">
-          <li><input type="text" className="InputCSS p-1 text-muted" placeholder="What needs to be done?" value={inputText} onChange={(event) => setInput(event.target.value)} onKeyDown={(event) => {
-            if (event.key === "Enter") {
-              sendData(event);
-            }
-          }} /></li>
           {toDo.length === 0 ? (
             <li className="list-group-item bg-light text-muted">No hay tareas, añadir tareas</li>
           ) : (
@@ -35,10 +35,10 @@ const Home = () => {
                 {task}
                 <button
                   type="button"
-                  className="btn"
+                  className="btn Delete"
                   onClick={() => handleDelete(index)}
                 >
-                  <i className="fa-regular fa-circle-xmark"></i>
+                  <i class="fas fa-trash-alt"></i>
                 </button>
               </li>
             ))
