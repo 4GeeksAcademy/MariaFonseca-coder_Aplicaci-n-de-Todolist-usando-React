@@ -29,7 +29,7 @@ const Home = () => {
           }} />
           <ul className="list-group paper">
             {toDo.length === 0 ? (
-              <li className="list-group-item bg-light text-muted">No hay tareas, añadir tareas</li>
+              <li className="list-group-item bg-light text-muted mb-3">No hay tareas, añadir tareas</li>
             ) : (
               toDo.map((task, index) => (
                 <li key={index} className="list-group-item d-flex justify-content-between align-items-center text-muted">
@@ -39,7 +39,7 @@ const Home = () => {
                     className="btn Delete"
                     onClick={() => handleDelete(index)}
                   >
-                    <i class="fas fa-trash-alt"></i>
+                    <i class="fas fa-trash-alt small" style={{ fontSize: '0.5rem' }}></i>
                   </button>
                 </li>
               ))
