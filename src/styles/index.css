@@ -4,7 +4,8 @@
   text-align: center;
   justify-content: center;
   width: 450px;
-  margin-left: 540px;
+  margin-left: 420px;
+  margin-top: 30px;
 }
 ul .InputCSS {
   border: 1px solid gainsboro;
@@ -18,4 +19,26 @@ ul .InputCSS {
 }
 .list-group-item:hover>button{
   display:block;
+}
+.paper {
+  background: #fff;
+  box-shadow:
+    /* The top layer shadow */
+    0 1px 1px rgba(0,0,0,0.15),
+    /* The second layer */
+    0 10px 0 -5px #eee,
+    /* The second layer shadow */
+    0 10px 1px -4px rgba(0,0,0,0.15),
+     /* The third layer */
+    0 20px 0 -10px #eee,
+    /* The third layer shadow */
+    0 20px 1px -9px rgba(0,0,0,0.15);
+    /* Padding for demo purposes */
+    padding: 30px;
+}
+.AmountTasks{
+  font-size: 0.9em;
+  color: rgb(130, 128, 128);
+  margin-right: 300px;
+  /* margin-bottom: 200px; */
 }
